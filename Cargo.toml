@@ -1,6 +1,6 @@
 [package]
 name = "ds-srv"
-version = "0.5.0"
+version = "0.6.0"
 authors = ["Alexandre Lissy <lissyx@lissyx.dyndns.org>"]
 
 [features]
@@ -8,7 +8,7 @@ default = []
 dump_debug_stream = []
 
 [dependencies]
-deepspeech = "0.4.0"
+deepspeech =  { git = "https://github.com/RustAudio/deepspeech-rs", rev = "74f0ae7a33d52f90ec37325f0c1d8e0276c3fe7f" }
 audrey = "0.2"
 clap = "2.31.2"
 log = "0.4.1"

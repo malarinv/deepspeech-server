@@ -40,8 +40,6 @@ pub struct InferenceResult {
     data: Vec<InferenceData>,
 }
 
-const N_CEP: u16 = 26;
-const N_CONTEXT: u16 = 9;
 const BEAM_WIDTH: u16 = 500;
 
 const LM_WEIGHT: f32 = 0.75;
@@ -56,14 +54,11 @@ const AUDIO_FORMAT: Format = Format::Wav;
 fn start_model(model: String, alphabet: String, lm: String, trie: String) -> Model {
     let mut m = Model::load_from_files(
         Path::new(&model),
-        N_CEP,
-        N_CONTEXT,
         Path::new(&alphabet),
         BEAM_WIDTH,
     ).unwrap();
 
     m.enable_decoder_with_lm(
-        Path::new(&alphabet),
         Path::new(&lm),
         Path::new(&trie),
         LM_WEIGHT,
